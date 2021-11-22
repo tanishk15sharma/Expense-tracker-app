@@ -6,12 +6,12 @@ const expenseTotal = document.querySelector("#expenseTotal");
 
 
 addButton.addEventListener("click", totalExpenseFinder);
-addButton.addEventListener("keyup", function(event) {
-    if(event.keyCode === 13  ){
-        event.preventDefault();
-        addButton.click()
+inputExpenseName.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        totalExpenseFinder();
     }
-} );
+});
+
 
 
 let expenseCounter = 0;
@@ -19,19 +19,26 @@ let allExpenseList = [];
 
 
 function totalExpenseFinder() {
-    let expenseListItem = {};
+
 
     //finding the total expense//
-    let expenseAmount = inputExpenseAmount.value;
-    let expenseName = inputExpenseName.value;
+    let expenseAmount = Number(inputExpenseAmount.value) ;
 
-    let amount = parseInt(expenseAmount, 10);
-
-    expenseCounter = expenseCounter + amount;
+    expenseCounter = expenseCounter + expenseAmount;
     // console.log(expenseCounter); 
     expenseTotal.innerHTML = "Total: " + expenseCounter + " ₹";
 
-    inputExpenseAmount.value  = "";
+    findListArry();
+
+};
+
+function findListArry() {
+    let expenseListItem = {};
+    let expenseAmount = inputExpenseAmount.value;
+    let expenseName = inputExpenseName.value;
+
+
+    inputExpenseAmount.value = "";
     inputExpenseName.value = "";
 
     //------------------------------------------//
@@ -48,7 +55,10 @@ function totalExpenseFinder() {
 
     // inputExpenseAmount.innerText = "";
     // inputExpenseName.innerText = "";
-};
+
+}
+
+
 
 function getDateString(datemoment) {
     return datemoment.toLocaleString("en-US", {
@@ -59,15 +69,31 @@ function getDateString(datemoment) {
 };
 
 function showUndeleteItems(datevalue) {
-    let arr = [];
+    // let arr = [];
+    
+    // for (let i = 0; i < allExpenseList.length; i++) {
+    //    // if (allExpenseList[i].moment.valueOf() !== datevalue) {
+    //         //arr.push(allExpenseList[i]);
+    //         //console.log(allExpenseList[i].moment.valueOf() );
+    //         allExpenseList = allExpenseList.filter(item => {
+
+    //         }   )
+    //     }
+    // }
+    allExpenseList = allExpenseList.filter(item => {
+        return  item.moment.valueOf() !== datevalue
+    })
+
+   let  counter = 0;
+    // allExpenseList = arr;
     for (let i = 0; i < allExpenseList.length; i++) {
-        if (allExpenseList[i].moment.valueOf() !== datevalue) {
-            arr.push(allExpenseList[i]);
-        }
-    }
-    allExpenseList = arr;
-   renderListArry(allExpenseList);
+         counter = counter + allExpenseList[i].amount;
+     }
+     renderListArry(allExpenseList);
+     expenseTotal.innerHTML = "Total: " + counter + " ₹";
+
 };
+
 
 function renderListArry(listOfArrys) {
 
@@ -96,3 +122,29 @@ function createListItem({
     </div>
 </li>`
 }
+
+
+// let ara= [1,2,3,4,5];
+
+// let newarra = ara.filter(e =>{
+//     return e > 2 
+// }  )
+
+// console.log( newarra);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
