@@ -1,9 +1,10 @@
-body {
-    display: flex;    
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    flex-direction: column;
-    
-
+#expenseTotal {
+    color: white;
+    width: 25%;
+    padding: 6px;
+    background-color: #1F2937;
+    border-radius: 15%;
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
 }

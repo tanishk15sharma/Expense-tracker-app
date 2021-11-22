@@ -1,23 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link  href="./style.css"  rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link href="./style.css" rel="stylesheet" />
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous">
+    </script>
     <title>outlay-the Expense tracker </title>
 </head>
+
 <body>
-    <label for="inputExpense"  >EXPENSE NAME : </label>
-    <input type="text" id="inputExpense">
-    <label for="expenseAmount"  >AMOUNT :</label>
-    <input type="text" id="expenseAmount">
-    <button id="addbtn">Add</button>
-    <div id="expenseContainer"  ></div>
-    <div id="expenseTotal"></div>
+
+    <nav class="navbar navbar-dark bg-dark w-50 mx-auto ">
+        <span class="navbar-brand mb-0 h1">Outlay</span>
+        <small class="p-3 mb-2 bg-light text-dark font-weight-bold " > THE EXPENSE TRACKER </small>
+
+    </nav>
+    <div class="w-50 container-fluid bg-light" style="min-height: 50vh"    >
+
+        <div class="container">
+
+            <div class="jumbotron w-50 mx-auto ">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Amount spent" aria-label="Amount spent"
+                        aria-describedby="spent in rupee" id="expenseAmount" />
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="spent in rupee">₹</span>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="spent at">#</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="spent On" aria-label="spent On"
+                        aria-describedby="spent at" id="inputExpense" />
+                    
+                </div>
+                  <div class="d-flex justify-content-center"   >
+                <button class="btn btn-secondary btn-block btn-lg" type="button" id="addbtn"     >Add</button>
+                </div>
+            </div>
+            <div id="expenseTotal">Total: 0 ₹ </div>
+
+            <div>
+                <ul class="list-group  " id="expenseListContainer">
+                </ul>
+            </div>
+        </div>
+    </div>
 
 
-    <script src="./script.js"  ></script>
-    
+    <script src="./script.js"></script>
 </body>
+
 </html>
